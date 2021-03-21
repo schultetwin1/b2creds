@@ -1,5 +1,9 @@
 # b2creds
 
+[![CI](https://github.com/schultetwin1/b2creds/actions/workflows/ci.yml/badge.svg)](https://github.com/schultetwin1/b2creds/actions/workflows/ci.yml)
+[![Docs](https://docs.rs/b2creds/badge.svg)](https://docs.rs/b2creds/)
+[![Crates.io](https://img.shields.io/crates/v/b2creds)](https://crates.io/crates/b2creds)
+
 b2creds is a simple library built to access the credentials for BackBlaze
 APIs. It mimics the access patterns of the b2 CLI tool and thus should work
 on any machine where a user has logged in with the b2 CLI.
