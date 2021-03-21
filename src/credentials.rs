@@ -29,8 +29,8 @@ pub enum CredentialsError {
     NoBaseDirs,
 }
 
-const KEY_ENV_VAR_NAME: &'static str = "B2_APPLICATION_KEY";
-const KEY_ID_ENV_VAR_NAME: &'static str = "B2_APPLICATION_KEY_ID";
+const KEY_ENV_VAR_NAME: &str = "B2_APPLICATION_KEY";
+const KEY_ID_ENV_VAR_NAME: &str = "B2_APPLICATION_KEY_ID";
 
 /// Holds the application key id and application key which make up your
 /// credentials
