@@ -190,11 +190,13 @@ pub fn default_creds_file() -> Result<PathBuf> {
 mod tests {
     use super::*;
 
+    #[cfg(target_os = "linux")]
     #[test]
     fn default_path_is_expected() -> Result<()> {
         let cred_path = default_creds_file()?;
         let home = std::env::var("HOME")?;
         let expected_path = PathBuf::from(home).join(".b2_account_info");
+        #[cfg(target_os = "linux")]
         assert_eq!(cred_path, expected_path);
         Ok(())
     }
