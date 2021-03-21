@@ -186,7 +186,6 @@ pub fn default_creds_file() -> Result<PathBuf> {
     Ok(PathBuf::from(home_dir.home_dir()).join(".b2_account_info"))
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -203,20 +202,29 @@ mod tests {
     #[test]
     fn from_env_fails_with_no_key_or_key_id() {
         clear_env();
-        assert!(matches!(Credentials::from_env().unwrap_err(), CredentialsError::NoCreds));
+        assert!(matches!(
+            Credentials::from_env().unwrap_err(),
+            CredentialsError::NoCreds
+        ));
     }
 
     #[test]
     fn from_env_fails_with_no_key() {
         clear_env();
         std::env::set_var(KEY_ID_ENV_VAR_NAME, "keyid");
-        assert!(matches!(Credentials::from_env().unwrap_err(), CredentialsError::NoCreds));
+        assert!(matches!(
+            Credentials::from_env().unwrap_err(),
+            CredentialsError::NoCreds
+        ));
     }
     #[test]
     fn from_env_fails_with_no_key_id() {
         clear_env();
         std::env::set_var(KEY_ENV_VAR_NAME, "key");
-        assert!(matches!(Credentials::from_env().unwrap_err(), CredentialsError::NoCreds));
+        assert!(matches!(
+            Credentials::from_env().unwrap_err(),
+            CredentialsError::NoCreds
+        ));
     }
 
     #[test]
@@ -234,7 +242,6 @@ mod tests {
         Ok(())
     }
 
-
     #[test]
     fn non_existant_path_fails() {
         clear_env();
@@ -247,7 +254,7 @@ mod tests {
     #[test]
     fn non_sqlite_path_fails() -> Result<()> {
         clear_env();
-        
+
         let file = tempfile::NamedTempFile::new()?;
         let creds = Credentials::from_file(Some(file.path()), None);
         assert!(matches!(creds.unwrap_err(), CredentialsError::SqlLite(_)));
@@ -258,7 +265,7 @@ mod tests {
     #[test]
     fn invalid_sqlite_db_fails() -> Result<()> {
         clear_env();
-        
+
         let file = tempfile::NamedTempFile::new()?;
 
         let conn = rusqlite::Connection::open(file.path())?;
@@ -291,7 +298,7 @@ mod tests {
         let account_id = "123";
         let key = "key";
         let key_id = "key_id";
-        
+
         let file = tempfile::NamedTempFile::new()?;
 
         let conn = rusqlite::Connection::open(file.path())?;
@@ -357,7 +364,7 @@ mod tests {
         let account2_id = "456";
         let account2_key = "yek";
         let account2_key_id = "id_key";
-        
+
         let file = tempfile::NamedTempFile::new()?;
 
         let conn = rusqlite::Connection::open(file.path())?;
