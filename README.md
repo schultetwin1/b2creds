@@ -19,6 +19,6 @@ By default, b2creds will search in the following locations:
 3. In the default sqlite database ~/.b2_account_info
 
 ```rust
-let creds = b2creds::Credentials::default().unwrap();
+let creds = b2creds::Credentials::locate().unwrap();
 println!("Key ID: {} Key: {}", creds.application_key_id, creds.application_key);
 ```

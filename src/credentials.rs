@@ -44,8 +44,8 @@ pub struct Credentials {
 }
 
 impl Credentials {
-    /// Returns the default credentials for b2. This function will search for b2
-    /// credentials in the following order:
+    /// Returns the system's credentials for b2. This function will search for
+    /// b2 credentials in the following order:
     ///
     /// 1. In the B2_APPLICATION_KEY and B2_APPLICATION_KEY_ID environmentals
     ///    variables
@@ -61,10 +61,10 @@ impl Credentials {
     /// # Examples
     ///
     /// ```no_run
-    /// let creds = b2creds::Credentials::default().unwrap();
+    /// let creds = b2creds::Credentials::locate().unwrap();
     /// println!("Key ID: {} Key: {}", creds.application_key_id, creds.application_key);
     /// ```
-    pub fn default() -> Result<Self> {
+    pub fn locate() -> Result<Self> {
         match Self::from_env() {
             Ok(res) => Ok(res),
             Err(_) => Self::from_file(None, None),

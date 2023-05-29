@@ -4,11 +4,11 @@
 //! used by the B2 CLI.
 //!
 //! ```no_run
-//! let creds = b2creds::Credentials::default().unwrap();
+//! let creds = b2creds::Credentials::locate().unwrap();
 //! println!("Key ID: {} Key: {}", creds.application_key_id, creds.application_key);
 //!```
 //!
-//! Look at the [`Credentials::default`], [`Credentials::from_env`]. and
+//! Look at the [`Credentials::locate`], [`Credentials::from_env`]. and
 //! [`Credentials::from_file`] to understand how to parse B2 credentials.
 
 mod credentials;
