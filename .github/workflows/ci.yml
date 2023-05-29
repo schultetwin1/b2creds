@@ -46,6 +46,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: test
+          args: -- --test-threads=1 # Needed for now due to use of env vars
 
       - name: 'Format Check'
         uses: actions-rs/cargo@v1
