@@ -6,7 +6,7 @@ description = "Library for accessing b2 credentials"
 homepage = "https://github.com/schultetwin1/b2creds/"
 repository = "https://github.com/schultetwin1/b2creds/"
 
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Matt Schulte <schultetwin1@gmail.com>"]
 edition = "2018"
 license = "MIT"
