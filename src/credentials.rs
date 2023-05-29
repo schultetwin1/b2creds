@@ -159,7 +159,7 @@ impl Credentials {
 
         let mut stmt = conn.prepare(&query)?;
 
-        let creds_iter = stmt.query_map(rusqlite::NO_PARAMS, |row| {
+        let creds_iter = stmt.query_map([], |row| {
             Ok(Credentials {
                 application_key_id: row.get(2).unwrap(),
                 application_key: row.get(1).unwrap(),
